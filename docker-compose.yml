@@ -1,0 +1,37 @@
+version: '3'
+services:
+
+  # サービス名を指定
+  web73:
+
+    # コンテナ名称を指定
+    container_name: php73
+
+    # Dockerfileからビルドする場合の設定
+    build:
+      context: .
+      dockerfile: ./Docker/php73/Dockerfile
+
+    # ローカルとコンテナのディスク紐付け
+    volumes:
+      - ./data/php73/html:/var/www/html
+
+    # ローカルとコンテナのポート紐付け
+    ports:
+      - "8073:80"
+
+  db80:
+    container_name: mysql8
+    build:
+      context: .
+      dockerfile: ./Docker/mysql8/Dockerfile
+    volumes:
+      #- ./Docker/mysql8/sqls:/docker-entrypoint-initdb.d
+      - ./data/mysql8/db:/var/lib/mysql
+      - ./data/mysql8/logs:/var/log/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=hogehoge
+    ports:
+      - "3308:3306"
+    #wslのユーザ権限(uid:1000)でMySQLを動かす コンテナ内の/var/lib/mysqlがwslのユーザIDで作成されるため。
+    user: "1000:1000"
