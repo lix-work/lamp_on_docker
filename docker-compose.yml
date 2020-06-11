@@ -1,7 +1,7 @@
 version: '3'
 services:
 
-  # サービス名を指定
+  # PHP7.3 + Apache
   web73:
 
     # コンテナ名称を指定
@@ -20,6 +20,23 @@ services:
     ports:
       - "8073:80"
 
+  # PHP7.4 + Apache
+  web74:
+
+    container_name: php74
+
+    build:
+      context: .
+      dockerfile: ./Docker/php74/Dockerfile
+
+    volumes:
+      - ./data/php74/html:/var/www/html
+
+    ports:
+      - "8074:80"
+
+
+  # MySQL8.0
   db80:
     container_name: mysql8
     build:

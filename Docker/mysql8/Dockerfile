@@ -1,7 +1,7 @@
 FROM mysql:8.0.20
 
-# カスタマイズしたローカルのmy.cnfを含める
+# 繧ｫ繧ｹ繧ｿ繝槭う繧ｺ縺励◆繝ｭ繝ｼ繧ｫ繝ｫ縺ｮmy.cnf繧貞性繧√ｋ
 ADD ./Docker/mysql8/etc/mysql/conf.d/my.cnf /etc/mysql/conf.d/my.cnf
 
-# my.cnfは644でないと無視されてしまうため、パーミッションを変更
+# my.cnf縺ｯ644縺ｧ縺ｪ縺�縺ｨ辟｡隕悶＆繧後※縺励∪縺�縺溘ａ縲√ヱ繝ｼ繝溘ャ繧ｷ繝ｧ繝ｳ繧貞､画峩
 RUN chmod 644 /etc/mysql/conf.d/my.cnf

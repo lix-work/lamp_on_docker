@@ -1,5 +1,5 @@
-# 公式phpのタグ「7.3-apache」イメージをベースとする
-FROM php:7.3-apache
+# 公式phpのタグ「7.4-apache」イメージをベースとする
+FROM php:7.4-apache
 
 # apacheのrewriteモジュールを有効にする
 # llコマンドエイリアス
