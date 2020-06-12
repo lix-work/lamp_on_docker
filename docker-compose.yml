@@ -31,6 +31,8 @@ services:
 
     volumes:
       - ./data/php74/html:/var/www/html
+      - ./Docker/php74/etc/apache2/apache2.conf:/etc/apache2/apache2.conf
+      - ./Docker/php74/etc/apache2/vhosts.conf:/etc/apache2/vhosts.conf
 
     ports:
       - "8074:80"
